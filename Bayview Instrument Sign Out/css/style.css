@@ -7,14 +7,8 @@
   margin-bottom: 0px;
 }
 
-body {
+body{
   font-family: "Open Sans", sans-serif;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 h1{
@@ -61,10 +55,33 @@ button{
   cursor: pointer;
   margin-bottom: 30px;
   margin-right: 50px;
-  margin-left: 50px;
   transition: 15ms;
 }
 
 button:hover{
   background: #b1c1de;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* confirmation page buttons */
+
+#restart{
+  position: absolute;
+  width: 248px;
+  height: 91px;
+  left: 187px;
+  top: 816px;
+}
+
+#confirm{
+  position: absolute;
+  width: 248px;
+  height: 91px;
+  left: 1293px;
+  top: 816px;
 }
