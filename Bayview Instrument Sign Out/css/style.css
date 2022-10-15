@@ -47,8 +47,9 @@ button{
   background-color: #DEEFFF;
   border: none;
   border-radius: 25px;
-  padding: 8px 25px;
-  font-size: 25px;
+  width: 200px;
+  height: 80px;
+  font-size: 40px;
   font-weight: 400;
   line-height: 54px;
   color: #0D2C7B;
