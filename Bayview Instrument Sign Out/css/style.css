@@ -46,6 +46,8 @@ input[type= text]:hover{
 
 button{
   background-color: #DEEFFF;
+  width: 201px;
+  height: 81px;
   border: none;
   border-radius: 25px;
   padding: 8px 25px;
@@ -56,6 +58,7 @@ button{
   cursor: pointer;
   margin-bottom: 30px;
   margin-right: 50px;
+  margin-left: 50px;
   transition: 15ms;
 }
 
