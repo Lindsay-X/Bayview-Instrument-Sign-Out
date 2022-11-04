@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Instrument Log</title>
-  <link rel="stylesheet" href="../css/admin.css/"
+  <link rel="stylesheet" href="../css/log.css"
+  <link rel="stylesheet" href="../css/admin.css"
 </head>
 <body>
+  <script src="../js/log.js"></script>
+
   <div class="topnav">
     <button class="return"></button>
     <input type="text" placeholder="Search">
@@ -14,14 +17,19 @@
     <button class="navBtn--red">Del</button>
   </div>
 
-  <div class="instr_log">
-    <table class="log_table">
-      <thead>
-        <tr>
-          <th>Insturment</th>
-          <th>Barcode Number</th>
-        </tr>
-      </thead>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border ="0">
+        <thead>
+          <tr>
+            <th>Instrument</th>
+            <th>Barcode Number</th>
+          </tr>
+        </thead>
+    </table>
+  </div>
+
+  <div class="tbl-content">
+    <table cellspacing="0" cellpadding="0" border="0" id="tbl-log">
       <tbody>
         <!-- data from database goes here, placeholder values here for now -->
         <tr>
@@ -35,6 +43,22 @@
         <tr>
           <td>Trombone</td>
           <Td>098765</Td>
+        </tr>
+        <tr>
+          <td>. </td>
+          <Td>. </Td>
+        </tr>
+        <tr>
+          <td>. </td>
+          <Td>. </Td>
+        </tr>
+        <tr>
+          <td>. </td>
+          <Td>. </Td>
+        </tr>
+        <tr>
+          <td>. </td>
+          <Td>. </Td>
         </tr>
       </tbody>
     </table>
