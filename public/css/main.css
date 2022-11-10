@@ -1,0 +1,15 @@
+table {
+  width: 50%;
+}
+
+th, td {
+  height: 50px;
+  padding: 5px;
+  align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #D3D3D3;
+    color: black;
+  }

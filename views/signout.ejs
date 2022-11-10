@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Sign Out Log</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="../css/log.css">
+    <link rel="stylesheet" href="../css/admin.css">
+  </head>
+
+  <body>
+    <script src="../js/log.js"></script>
+    
+    <div class="topnav">
+      <button class="return"></button>
+      <input type="text" placeholder="Search">
+      <button class="navBtn--blue">Add</button> <!-- need js for these buttons & the popup confirmation -->
+      <button class="navBtn--red">Del</button>
+    </div>
+
+    <table class="tbl-content" cellpadding="0" cellspacing="0" border="0">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Instrument</th>
+                <th scope="col">Signed Out</th>
+                <th scope="col">Returned</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(data.length > 0){
+            for(var i = 0; i< data.length; i++) {%>
+            <tr>
+                <th scope="row"><%= (i+1) %></th>
+                <td><%= data[i].StudentName%></td>
+                <td><%= data[i].Instrument%></td>
+                <td><%= data[i].SignOutDate%></td>
+                <td><%= data[i].ReturnDate%></td>
+            </tr>
+            <% }
+            }else{ %>
+            <tr>
+                <td colspan="5">There are no signed out instruments right now.</td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+  </body>
+</html>
