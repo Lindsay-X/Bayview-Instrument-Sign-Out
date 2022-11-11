@@ -3,8 +3,9 @@ table{
     table-layout: fixed;
 }
 
-tr:nth-child(even){background-color: #DEEFFF}
-tr:nth-child(odd){background-color: #CBE4FB}
+td:last-child, th:last-child{
+    border-left: 2px solid;
+}
 
 th{
     background-color: #A9D0F3;
@@ -22,12 +23,15 @@ th{
     cursor: default;
 }
 
+tr:nth-child(even){background-color: #DEEFFF}
+tr:nth-child(odd){background-color: #CBE4FB}
+
 td{
     font-family: "Open Sans", sans-serif;
     font-style: normal;
-    font-weight: 550;
-    font-size: 32px;
-    line-height: 50px;
+    font-weight: 549;
+    font-size: 36px;
+    line-height: 60px;
     text-align: center;
 
     color: #000000;
@@ -35,15 +39,11 @@ td{
     cursor: pointer;
 }
 
-td:last-child, th:last-child{
-    border-left: 2px solid;
-}
-
 td.selected{
     background-color: red;
 }
 
-.tbl-log{
+.tbl-content{
     height: 300px;
     overflow: auto;
     margin-top: 0px;
@@ -57,3 +57,47 @@ td.selected{
     color: #000000;
 }
 
+.topnav {
+    background-color: #255582;
+    width:100%;
+
+    border: 1px solid black;
+
+}
+
+.topnav table {
+    background-color: #255582;
+    border-width:0px;
+    cellspacing:0px;
+}
+
+
+
+.topnav td {
+    background-color: #255582;
+    line-height: 30px;
+    cursor:default;
+}
+
+.topnav a {
+    color: white;
+    font-size: 24px;
+    cursor:pointer;
+}
+
+.topnav a:hover {
+    color: yellow;
+}
+
+.topnav input {
+    height:24px;
+    width:60%;
+    border-radius: 20px;
+    text-indent: 10px;
+
+}
+
+.topnav td:last-child{
+    border-left: 0px solid;
+
+}

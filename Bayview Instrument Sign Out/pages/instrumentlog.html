@@ -1,63 +1,86 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Instrument Log</title>
-  <link rel="stylesheet" href="../css/log.css"
-  <link rel="stylesheet" href="../css/admin.css"
-</head>
+  <link rel="stylesheet" href="../css/log.css" <link rel="stylesheet" href="../css/admin.css" </head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
 <body>
-  <script src="../js/log.js"></script>
+<script src="../js/log.js"></script>
 
-  <div class="topnav">
-    <button class="return"></button>
-    <input type="text" placeholder="Search">
-    <button class="navBtn--blue">Add</button> <!-- need js for these buttons & the popup confirmation -->
-    <button class="navBtn--red">Del</button>
-  </div>
 
-  <div class="tbl-log">
-    <table cellpadding="0" cellspacing="0" border ="0">
-        <thead>
-          <tr>
-            <th>Instrument</th>
-            <th>Barcode Number</th>
-          </tr>
-        </thead>
+<div>
+  <table class="topnav">
+    <tr>
+      <td style="width:30%;text-align: left; padding-left: 10px;">
+        <input name="search_word" placeholder="Search">
+      </td>
+      <td>
+        <a>Students</a>
+      </td>
+      <td>
+        <a>Instruments</a>
+      </td>
+      <td>
+        <a>Sign out log</a>
+      </td>
+      <td>
+        <a>Return log</a>
+      </td>
+      <td style="width:20%"></td>
+    </tr>
+  </table>
+</div>
 
-      <tbody>
-        <!-- data from database goes here, placeholder values here for now -->
-        <tr>
-          <td>Trumpet</td>
-          <td>123456</td>
-        </tr>
-        <tr>
-          <td>Trumpet 2</td>
-          <td>654321</td>
-        </tr>
-        <tr>
-          <td>Trombone</td>
-          <Td>098765</Td>
-        </tr>
-        <tr>
-          <td>. </td>
-          <Td>. </Td>
-        </tr>
-        <tr>
-          <td>. </td>
-          <Td>. </Td>
-        </tr>
-        <tr>
-          <td>. </td>
-          <Td>. </Td>
-        </tr>
-        <tr>
-          <td>. </td>
-          <Td>. </Td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="tbl-header">
+  <table cellpadding="0" cellspacing="0" border="0" style="padding-right:18px">
+    <thead>
+    <th>Instrument</th>
+    <th>Barcode Number</th>
+
+    </thead>
+  </table>
+</div>
+
+<div class="tbl-content">
+  <table cellspacing="0" cellpadding="0" border="0" id="tbl-log">
+    <tbody>
+    <!-- data from database goes here, placeholder values here for now -->
+    <tr>
+      <td>Trumpet</td>
+      <td>123456</td>
+    </tr>
+    <tr>
+      <td>Trumpet 2</td>
+      <td>654321</td>
+    </tr>
+    <tr>
+      <td>Trombone</td>
+      <Td>098765</Td>
+    </tr>
+    <tr>
+      <td>. </td>
+      <Td>. </Td>
+    </tr>
+    <tr>
+      <td>. </td>
+      <Td>. </Td>
+    </tr>
+    <tr>
+      <td>. </td>
+      <Td>. </Td>
+    </tr>
+    <tr>
+      <td>. </td>
+      <Td>. </Td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 </body>
+
 </html>
