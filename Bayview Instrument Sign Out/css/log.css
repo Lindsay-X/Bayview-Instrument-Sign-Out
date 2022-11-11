@@ -3,9 +3,8 @@ table{
     table-layout: fixed;
 }
 
-td:last-child, th:last-child{
-    border-left: 2px solid;
-}
+tr:nth-child(even){background-color: #DEEFFF}
+tr:nth-child(odd){background-color: #CBE4FB}
 
 th{
     background-color: #A9D0F3;
@@ -23,15 +22,12 @@ th{
     cursor: default;
 }
 
-tr:nth-child(even){background-color: #DEEFFF}
-tr:nth-child(odd){background-color: #CBE4FB}
-
 td{
     font-family: "Open Sans", sans-serif;
     font-style: normal;
-    font-weight: 549;
-    font-size: 36px;
-    line-height: 60px;
+    font-weight: 550;
+    font-size: 32px;
+    line-height: 50px;
     text-align: center;
 
     color: #000000;
@@ -39,11 +35,15 @@ td{
     cursor: pointer;
 }
 
+td:last-child, th:last-child{
+    border-left: 2px solid;
+}
+
 td.selected{
     background-color: red;
 }
 
-.tbl-content{
+.tbl-log{
     height: 300px;
     overflow: auto;
     margin-top: 0px;
