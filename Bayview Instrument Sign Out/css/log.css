@@ -1,3 +1,31 @@
+h1{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+}
+
+input[type= text]{
+    min-width: 339px;
+    background-color: #FFFFFF;
+    border: 3px solid #8A8A8A;
+    padding: 15px 20px;
+    font-size: 30px;
+    color: #B4B4B4;
+    cursor: pointer;
+    margin-bottom: 30px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+}
+
+input[type= text]:hover{
+    background-color: #e1dfdf;  
+    cursor: text;
+}
+
 table{
     width: 100%;
     table-layout: fixed;
@@ -57,6 +85,7 @@ td.selected{
     color: #000000;
 }
 
+ /*navigation bar*/
 .topnav {
     background-color: #255582;
     width:100%;
@@ -85,7 +114,7 @@ td.selected{
     cursor:pointer;
 }
 
-.topnav a:hover {
+.topnav a:active {
     color: yellow;
 }
 
@@ -100,4 +129,49 @@ td.selected{
 .topnav td:last-child{
     border-left: 0px solid;
 
+}
+
+.topnav button{
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    color: #FFEAEA;
+    width: 68px;
+}
+
+.add{
+    background-color: #44A65A;
+}
+.add:active {
+    background-color: #4a9059;
+}
+
+.minus{
+    background-color: #DE6666;
+}
+.minus:active{
+    background-color: #a75a5a;
+}
+
+/*Instrument Adding Modal*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.2); 
+}
+  
+.add-modal-content {
+    background-color: #ECF7FF; 
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 7px solid #434343;
+    border-radius: 9px;
+    width: 30%;
+    height: 30%;
 }

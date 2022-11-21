@@ -6,8 +6,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Instrument Log</title>
-  <link rel="stylesheet" href="../css/log.css" <link rel="stylesheet" href="../css/admin.css" </head>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/log.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
 
 <body>
 <script src="../js/log.js"></script>
@@ -31,13 +32,33 @@
       <td>
         <a>Return log</a>
       </td>
-      <td style="width:20%"></td>
+      <td style="width:10%"></td>
+      <td>
+        <button id="addaction" class="add" >Add</button>
+        <button class="minus">Del</button>
+      </td>
     </tr>
   </table>
 </div>
 
+<!-- Add instrument modal -->
+<div id="addmodal" class="modal">
+
+  
+  <div class="add-modal-content" >
+    <h1>Add an instrument</h1>
+    <input placeholder="Instrument">
+    <br>
+    <input placeholder="Barcode number">
+    <br>
+    <button class="close">Cancel</button>
+    <button>Confirm</button>
+  </div>
+
+</div>
+
 <div class="tbl-header">
-  <table cellpadding="0" cellspacing="0" border="0" style="padding-right:18px">
+  <table cellpadding="0" cellspacing="0">
     <thead>
     <th>Instrument</th>
     <th>Barcode Number</th>
@@ -47,7 +68,7 @@
 </div>
 
 <div class="tbl-content">
-  <table cellspacing="0" cellpadding="0" border="0" id="tbl-log">
+  <table cellspacing="0" cellpadding="0" id="tbl-log">
     <tbody>
     <!-- data from database goes here, placeholder values here for now -->
     <tr>
@@ -81,6 +102,26 @@
     </tbody>
   </table>
 </div>
+
+<script>
+  var modal = document.getElementById("addmodal");
+  var btn = document.getElementById("addaction");
+  var close = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  close.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
 </body>
 
 </html>
