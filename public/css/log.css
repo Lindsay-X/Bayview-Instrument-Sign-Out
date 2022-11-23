@@ -1,19 +1,49 @@
+form {
+    display:inline;
+    margin:0px;
+    padding:0px;
+}
+
+h1{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+}
+
+input[type= text]{
+    min-width: 339px;
+    background-color: #FFFFFF;
+    border: 3px solid #8A8A8A;
+    padding: 15px 20px;
+    font-size: 30px;
+    color: #B4B4B4;
+    cursor: pointer;
+    margin-bottom: 30px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+}
+
+input[type= text]:hover{
+    background-color: #e1dfdf;  
+    cursor: text;
+}
+
 table{
     width: 100%;
     table-layout: fixed;
-
 }
 
-/* td:last-child, th:last-child{
+td:last-child, th:last-child{
     border-left: 2px solid;
-} */
-
-th:first-child, td:first-child {
-    border-left: 0;
 }
 
 th:nth-child(1){
     width: 10%;
+    border-right: 2px solid;
 }
 
 th{
@@ -30,8 +60,6 @@ th{
     color: #000000;
 
     cursor: default;
-
-    border-left: 2px solid;
 }
 
 tr:nth-child(even){background-color: #DEEFFF}
@@ -48,8 +76,6 @@ td{
     color: #000000;
 
     cursor: pointer;
-
-    border-left: 2px solid;
 }
 
 td.selected{
@@ -70,3 +96,93 @@ td.selected{
     color: #000000;
 }
 
+ /*navigation bar*/
+.topnav {
+    background-color: #255582;
+    width:100%;
+
+    border: 1px solid black;
+
+}
+
+.topnav table {
+    background-color: #255582;
+    border-width:0px;
+    cellspacing:0px;
+}
+
+
+
+.topnav td {
+    background-color: #255582;
+    /* line-height: 24px; */
+    cursor:default;
+}
+
+.topnav a {
+    color: white;
+    font-size: 24px;
+    cursor:pointer;
+}
+
+.topnav a:active {
+    color: yellow;
+}
+
+.topnav input {
+    height:24px;
+    width:80%;
+    border-radius: 20px;
+    text-indent: 10px;
+
+}
+
+.topnav td:last-child{
+    border-left: 0px solid;
+
+}
+
+.topnav button{
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    color: #FFEAEA;
+    width: 68px;
+}
+
+.add{
+    background-color: #44A65A;
+}
+.add:active {
+    background-color: #4a9059;
+}
+
+.minus{
+    background-color: #DE6666;
+}
+.minus:active{
+    background-color: #a75a5a;
+}
+
+/*Instrument Adding Modal*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.2); 
+}
+  
+.add-modal-content {
+    background-color: #ECF7FF; 
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 7px solid #434343;
+    border-radius: 9px;
+    width: 30%;
+    height: 30%;
+}

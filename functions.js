@@ -10,7 +10,7 @@
 
 
 
-function signIn(db, instrument, barcodeNum, name, studentID) {
+function signOut(db, instrument, barcodeNum, name, studentID) {
     // sql statement
     let sql = `UPDATE instruments
               SET StudentName = ?,
@@ -32,11 +32,11 @@ function signIn(db, instrument, barcodeNum, name, studentID) {
             return console.error(err.message);
         }
         console.log(`Row(s) updated: ${this.changes}`);
-        console.log(`${name} signed in a ${instrument} on ${date}`);
+        console.log(`${name} signed out a ${instrument} on ${date}`);
     })
 }
 
-function signOut(db, studentID) {
+function returnTo(db, studentID) {
     // Sql statement
     let sql = `UPDATE instruments
             SET SignOutDate = ?

@@ -1,19 +1,64 @@
 <html>
   <head>
     <title>Sign Out Log</title>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" href="../css/log.css">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
 
   <body>
-    <script src="../js/log.js"></script>
+    <div>
+      <table class="topnav">
+        <tr>
+          <td class="nav">
+            <a href="/"><i class="material-icons">home</i></a>
+          </td>
+          <td style="width:20%;text-align: left; padding-left: 10px;">
+            <input name="search_word" placeholder="Search">
+          </td>
+          <td class="nav">
+            <a href="students">Students</a>
+          </td>
+          <td class="nav">
+            <a href="instruments">Instruments</a>
+          </td>
+          <td class="nav">
+            <a href="signout">Sign Out</a>
+          </td>
+          <td class="nav">
+            <a href="currentsignout">Not Returned</a>
+          </td>
+          <td style="width:10%"></td>
+          <td>
+            <button id="addaction" class="add">Add</button>
+            <form action="/signout/delete" method="post">
+              <button type="submit" id="del" class="minus">Del</button>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </div>
     
-    <div class="topnav">
-      <button class="return"></button>
-      <input type="text" placeholder="Search">
-      <button class="navBtn--blue">Add</button> <!-- need js for these buttons & the popup confirmation -->
-      <button class="navBtn--red">Del</button>
+    <!-- Add instrument modal -->
+    <div id="addmodal" class="modal">
+      <div class="add-modal-content" >
+        <h1>Add a signout log</h1>
+        <input placeholder="Student">
+        <br>
+        <input placeholder="Student ID">
+        <br>
+        <input placeholder="Instrument">
+        <br>
+        <input placeholder="Barcode Number">
+        <br>
+        <input placeholder="Sign Out Date">
+        <br>
+        <input placeholder="Return Date">
+        <br>
+        <button class="close">Cancel</button>
+        <form action="/signout/create" method="post">
+          <button type="submit" id="add" class="navBtn--blue">Confirm</button>
+        </form>
+      </div> 
     </div>
 
     <table class="tbl-content" cellpadding="0" cellspacing="0" border="0">
@@ -44,5 +89,6 @@
             <% } %>
         </tbody>
     </table>
+    <script src="../modal.js"></script>
   </body>
 </html>
