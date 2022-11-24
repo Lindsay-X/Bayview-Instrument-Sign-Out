@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 *{
-  background: #DEEFFF;
-  color: #000000;
+  background: #D9898C;
+  color: #FFFFFF;
   margin-top: 0px;
   margin-bottom: 0px;
-}
-
-form {
-  display:inline;
-  margin:0px;
-  padding:0px;
 }
 
 body{
@@ -18,13 +12,12 @@ body{
 }
 
 h1{
-  color: #0D2C7B;
   font-size: 64;
   font-weight: 800;
   font-size: 64px;
   line-height: 87px;
   margin-top: 18%;
-
+  margin-bottom: 30px;
 }
 
 p{
@@ -37,32 +30,32 @@ p{
 input[type= text]{
   min-width: 625px;
   background-color: #EFEFEF;
-  border-color: #0D2C7B;
+  border: none;
   border-radius: 8px;
   padding: 15px 20px;
   font-size: 40px;
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  margin-top: 58px;
-  margin-bottom: 73px;
+  margin-bottom: 30px;
 }
 
 input[type= text]:hover{
   background-color: #e1dfdf;  
-  cursor:text;
+  cursor: text;
 }
 
 button{
-  background-color: #D9898C;
+  background-color: #DEEFFF;
   width: 201px;
   height: 81px;
   border: none;
   border-radius: 25px;
-  padding: 8px 25px;
+  width: 200px;
+  height: 80px;
   font-size: 40px;
   font-weight: 400;
   line-height: 54px;
-  color: #000000;
+  color: #0D2C7B;
   cursor: pointer;
   margin-bottom: 30px;
   margin-right: 50px;
@@ -71,7 +64,7 @@ button{
 }
 
 button:hover{
-  background: #ce9799;
+  background: #b1c1de;
 }
 
 .center {
@@ -80,3 +73,20 @@ button:hover{
   align-items: center;
 }
 
+/* confirmation page buttons */
+
+#restart{
+  position: absolute;
+  width: 248px;
+  height: 91px;
+  left: 187px;
+  top: 816px;
+}
+
+#confirm{
+  position: absolute;
+  width: 248px;
+  height: 91px;
+  left: 1293px;
+  top: 816px;
+}
