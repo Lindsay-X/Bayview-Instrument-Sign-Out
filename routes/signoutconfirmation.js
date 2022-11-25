@@ -6,19 +6,30 @@ var dataModel = require('../models/data-model.js');
 router.get("/", function (req, res) {
   var id = req.query.id;
   var barcode = req.query.barcode;
-  
-  var name = dataModel.idToName(id);
-  var instrument = dataModel.barcodeToInstrument(barcode);
-  var date = dataModel.getDate();
-  res.render("signoutconfirmation", {name:name, instrument:instrument, date:date});
+
+  dataModel.idToName(id, function(name) {
+    dataModel.barcodeToInstrument(barcode, function(instrument) {
+      var date = dataModel.getDate();
+      res.render("signoutconfirmation", {name:name, instrument:instrument, date:date, id:id, barcode:barcode});
+    })
+  });
 });
 
 router.post('/confirm', function(req, res) {
-  // TODO: if instrument exists in SignOut database 
-  // dataModel.signOutInstrument();
-
-  //TODO: if instrument doesn't exist in SignOut database 
-  // dataModel.returnInstrument();
+  var barcode = req.query.barcode;
+  dataModel.currentlySignedOut(barcode, function(result) {
+    var id = req.query.id;
+    if (result == "DNE") { // If instrument is not currently signed out, signout the instrument 
+      dataModel.idToName(id, function(name) {
+        dataModel.barcodeToInstrument(barcode, function(instrument) {
+          dataModel.signOutInstrument(name, id, instrument, barcode);  
+        })
+      })
+    }
+    else { // If instrument is already signed out, return the instrument 
+      dataModel.returnInstrument(barcode);
+    }
+  }) 
 
   res.redirect("/");
 });

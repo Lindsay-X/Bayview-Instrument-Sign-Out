@@ -100,22 +100,17 @@ function removeSignOut(name, instrument, signoutDate, cb) {
 
 function signOutInstrument(studentName, studentID, instrument, barcodeNumber) {
     // sql statement
-    let sql = `UPDATE SignOut
-              SET StudentName = ?,
-              StudentID = ?,
-              Instrument = ?,
-              BarcodeNumber = ?,
-              SignOutDate = ?,
-              ReturnDate = null`;
+    let sql = `INSERT INTO SignOut (StudentName, StudentID, Instrument, BarcodeNumber, SignOutDate, ReturnDate)
+    VALUES(?, ?, ?, ?, ?, null)`;
 
-    // Get current Date
+    // Get current date
     const date = getDate();
 
-    db.run(sql, [studentName, studentID, instrument, barcodeNumber, currentDate], function(err) {
+    db.run(sql, [studentName, studentID, instrument, barcodeNumber, date], function(err) {
         if (err) {
             return console.error(err.message);
         }
-        console.log(`Row(s) updated: ${this.changes}`);
+        console.log(`Row(s) added: ${this.changes}`);
         console.log(`${studentName} signed out a ${instrument} on ${date}`);
     })
 }
@@ -126,15 +121,15 @@ function returnInstrument(barcodeNumber) {
             SET ReturnDate = ?
             WHERE BarcodeNumber = ?`;
 
-    
+    // Get current date
     const date = getDate();
 
-    db.run(sql, [currentDate, barcodeNumber], function(err) {
+    db.run(sql, [date, barcodeNumber], function(err) {
         if (err) {
             return console.error(err.message);
         }
         console.log(`Row(s) updated: ${this.changes}`);
-        console.log(`${studentID} returned an instrument on ${date}`);
+        // console.log(`${studentID} returned an instrument on ${date}`);
     })
 }
 
@@ -147,4 +142,52 @@ function getDate() {
     return `${day}-${month}-${year}`;
 }
 
-module.exports = { readData, readCurrentData, addInstrument, removeInstrument, addStudent, removeStudent, addSignOut, removeSignOut, signOutInstrument, returnInstrument, getDate }
+function idToName(id, cb) {
+    let sql = `SELECT * FROM Students WHERE StudentID IS ?`;
+
+    db.get(sql, [id], (err, row) => {
+        if (err) {
+            throw err;
+        }
+        if (row == null) {
+            cb("Anonymous Student");
+        }
+        else {
+            cb(row.StudentName);
+        }
+    })
+}
+
+function barcodeToInstrument(barcode, cb) {
+    let sql = `SELECT * FROM Instruments WHERE BarcodeNumber IS ?`;
+
+    db.get(sql, [barcode], (err, row) => {
+        if (err) {
+            throw err;
+        }
+        if (row == null) {
+            cb("Unknown Instrument");
+        }
+        else {
+            cb(row.Instrument);
+        }
+    })
+}
+
+function currentlySignedOut(barcode, cb) {
+    let sql = `SELECT * FROM SignOut WHERE BarcodeNumber IS ?`;
+
+    db.get(sql, [barcode], (err, row) => {
+        if (err) {
+            throw err;
+        }
+        if (row == null) {
+            cb("DNE");
+        }
+        else {
+            cb(row);
+        }
+    })
+}
+
+module.exports = { readData, readCurrentData, addInstrument, removeInstrument, addStudent, removeStudent, addSignOut, removeSignOut, signOutInstrument, returnInstrument, getDate, idToName, barcodeToInstrument, currentlySignedOut }
