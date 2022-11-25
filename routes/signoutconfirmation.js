@@ -7,11 +7,14 @@ router.get("/", function (req, res) {
   var id = req.query.id;
   var barcode = req.query.barcode;
 
-  dataModel.idToName(id, function(name) {
-    dataModel.barcodeToInstrument(barcode, function(instrument) {
-      var date = dataModel.getDate();
-      res.render("signoutconfirmation", {name:name, instrument:instrument, date:date, id:id, barcode:barcode});
-    })
+  dataModel.currentlySignedOut(barcode, function(result) {
+    var action = (result == "DNE") ? "signed out" : "returned";
+    dataModel.idToName(id, function(name) {
+      dataModel.barcodeToInstrument(barcode, function(instrument) {
+        var date = dataModel.getDate();
+        res.render("signoutconfirmation", {name:name, instrument:instrument, date:date, action:action, id:id, barcode:barcode});
+      })
+    });
   });
 });
 
