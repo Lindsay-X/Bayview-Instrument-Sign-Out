@@ -10,27 +10,27 @@
       <table class="topnav">
         <tr>
           <td class="nav">
-            <a href="/home"><i class="material-icons">home</i></a>
+            <a href="/"><i class="material-icons">home</i></a>
           </td>
           <td style="width:20%;text-align: left; padding-left: 10px;">
             <input name="search_word" placeholder="Search">
           </td>
           <td class="nav">
-            <a href="students">Students</a>
+            <a href="/logs/students">Students</a>
           </td>
           <td class="nav">
-            <a href="instruments">Instruments</a>
+            <a href="/logs/instruments">Instruments</a>
           </td>
           <td class="nav">
-            <a href="signout">Sign Out</a>
+            <a href="/logs/signout">Sign Out</a>
           </td>
           <td class="nav">
-            <a href="currentsignout">Not Returned</a>
+            <a href="/logs/currentsignout">Not Returned</a>
           </td>
           <td style="width:10%"></td>
           <td>
             <button id="addaction" class="add">Add</button>
-            <form action="/delete" method="post">
+            <form action="/logs/delete" method="post">
               <button type="submit" id="del" class="minus">Del</button>
             </form>
           </td>
@@ -55,7 +55,7 @@
         <input placeholder="Return Date">
         <br>
         <button class="close">Cancel</button>
-        <form action="/create" method="post">
+        <form action="/logs/create" method="post">
           <button type="submit" id="add" class="navBtn--blue">Confirm</button>
         </form>
       </div> 

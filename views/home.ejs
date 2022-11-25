@@ -7,14 +7,16 @@
     <h1 class="center">Sign Out</h1>
 
     <div class="center">
-      <input type="text" id="studentid" placeholder="Student Number">
+      <form action="/form" method="post">
+        <input type="text" name="id" placeholder="Student Number">
     </div>
-
+    
     <p class="center">(type or barcode scan student card)</p>
 
     <div class="center">
-      <button>Enter</button>
-      <form action="/home/admin" method="post">
+        <button>Enter</button>
+      </form>
+      <form action="/admin" method="post">
         <button>Admin?</button>
       </form>
     </div>

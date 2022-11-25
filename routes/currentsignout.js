@@ -3,7 +3,7 @@ var router = express.Router();
 var dataModel = require('../models/data-model.js');
 
 // current sign out route 
-router.get('/', async function(req, res){
+router.get('/', function(req, res){
   dataModel.readCurrentData("SignOut", function(data) {
       res.render('currentsignout', {
           data: data
@@ -19,7 +19,7 @@ router.post('/create', function(req, res) {
   signOutDate = "2022-11-22"
   returnDate = ""
   dataModel.addSignOut(studentName, id, instrument, barcode, signOutDate, returnDate, function() {
-    res.redirect('/currentsignout');
+    res.redirect('/logs/currentsignout');
   });
 });
 
@@ -28,7 +28,7 @@ router.post('/delete', function(req, res) {
   instrument = "Flute"
   signOutDate = "2022-11-22"
   dataModel.removeSignOut(studentName, instrument, signOutDate, function() {
-    res.redirect('/currentsignout');
+    res.redirect('/logs/currentsignout');
   });
 });
 

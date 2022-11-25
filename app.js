@@ -23,17 +23,17 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // student routes
-app.use('/home', homeRouter);
+app.use('/', homeRouter);
 app.use('/confirm', confirmRouter);
 app.use('/input', inputRouter);
 
 // admin routes
 app.use('/admin', adminRouter);
-app.use('/', indexRouter);
-app.use('/instruments', instrumentsRouter);
-app.use('/students', studentsRouter);
-app.use('/signout', signoutRouter);
-app.use('/currentsignout', currentsignoutRouter);
+app.use('/logs', indexRouter);
+app.use('/logs/instruments', instrumentsRouter);
+app.use('/logs/students', studentsRouter);
+app.use('/logs/signout', signoutRouter);
+app.use('/logs/currentsignout', currentsignoutRouter);
 
 // set up server on localhost
 var port = 3000;

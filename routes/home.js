@@ -10,4 +10,9 @@ router.post('/admin', function(req, res) {
     res.redirect("/admin");
 });
 
+router.post('/form', function(req, res) {
+  var id = encodeURIComponent(req.body.id);
+  res.redirect("/input?id=" + id);
+});
+
 module.exports = router;

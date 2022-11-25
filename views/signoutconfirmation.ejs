@@ -1,18 +1,17 @@
-<html lang="en">
-
+<html>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>Confirmation</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
 
   <body>
-    <h1 class="center">"" Signed out a "" on ""</h1>
+    <h1 class="center"><%=name%> signed out a <%=instrument%> on <%=date%></h1>
 
-    <button id="restart">Restart</button> 
-    <button id="confirm">Confirm</button> 
+    <form action="/confirm/restart" method="post">
+      <button id="restart">Restart</button>
+    </form>
+    <form action="/confirm/confirm" method="post">
+      <button id="confirm">Confirm</button>
+    </form>
   </body>
-
 </html>

@@ -1,21 +1,24 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Instrument Sign-in/out</title>
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-  <h1 class="center">Instrument Sign In/Out</h1>
+<html>
+  <head>
+    <title>Instrument Sign Out</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <h1 class="center">Instrument Sign Out/Return</h1>
 
-  <div class="center">
-    <input type="text" id="studentid" placeholder="Instrument number">
-  </div>
+    <div class="center">
+      <form action="/input/confirm?id=<%=id%>" method="post">
+        <input type="text" name="barcode" placeholder="Instrument number">
+    </div>
 
-  <p class="center">(type or barcode scan)</p>
+    <p class="center">(type or barcode scan)</p>
 
-  <div class="center">
-    <button>Enter</button> 
-  </div>
-</body>
+    <div class="center">
+        <button>Enter</button> 
+      </form>
+      <form action="/input/home" method="post">
+        <button>Back</button>
+      </form>
+    </div>
+  </body>
 </html>

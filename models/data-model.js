@@ -97,4 +97,54 @@ function removeSignOut(name, instrument, signoutDate, cb) {
     }, cb)
 }
 
-module.exports = { readData, readCurrentData, addInstrument, removeInstrument, addStudent, removeStudent, addSignOut, removeSignOut };
+
+function signOutInstrument(studentName, studentID, instrument, barcodeNumber) {
+    // sql statement
+    let sql = `UPDATE SignOut
+              SET StudentName = ?,
+              StudentID = ?,
+              Instrument = ?,
+              BarcodeNumber = ?,
+              SignOutDate = ?,
+              ReturnDate = null`;
+
+    // Get current Date
+    const date = getDate();
+
+    db.run(sql, [studentName, studentID, instrument, barcodeNumber, currentDate], function(err) {
+        if (err) {
+            return console.error(err.message);
+        }
+        console.log(`Row(s) updated: ${this.changes}`);
+        console.log(`${studentName} signed out a ${instrument} on ${date}`);
+    })
+}
+
+function returnInstrument(barcodeNumber) {
+    // Sql statement
+    let sql = `UPDATE SignOut
+            SET ReturnDate = ?
+            WHERE BarcodeNumber = ?`;
+
+    
+    const date = getDate();
+
+    db.run(sql, [currentDate, barcodeNumber], function(err) {
+        if (err) {
+            return console.error(err.message);
+        }
+        console.log(`Row(s) updated: ${this.changes}`);
+        console.log(`${studentID} returned an instrument on ${date}`);
+    })
+}
+
+// Get current date
+function getDate() {
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+}
+
+module.exports = { readData, readCurrentData, addInstrument, removeInstrument, addStudent, removeStudent, addSignOut, removeSignOut, signOutInstrument, returnInstrument, getDate }

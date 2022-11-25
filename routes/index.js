@@ -3,7 +3,7 @@ var router = express.Router();
 var dataModel = require('../models/data-model.js');
 
 // default route for logs (shows all rows and columns)
-router.get('/', async function(req, res){
+router.get('/', function(req, res){
   dataModel.readData("SignOut", function(data) {
       res.render('index', {
           data: data
@@ -19,7 +19,7 @@ router.post('/create', function(req, res) {
   signOutDate = "2022-11-22"
   returnDate = ""
   dataModel.addSignOut(studentName, id, instrument, barcode, signOutDate, returnDate, function() {
-    res.redirect('/');
+    res.redirect('/logs');
   });
 });
 
@@ -28,7 +28,7 @@ router.post('/delete', function(req, res) {
   instrument = "Flute"
   signOutDate = "2022-11-22"
   dataModel.removeSignOut(studentName, instrument, signOutDate, function() {
-    res.redirect('/');
+    res.redirect('/logs');
   });
 });
 
