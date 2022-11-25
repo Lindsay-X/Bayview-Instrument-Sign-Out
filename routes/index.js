@@ -12,12 +12,12 @@ router.get('/', function(req, res){
 })
 
 router.post('/create', function(req, res) {
-  studentName = "Larris Xie";
-  id = 340920198;
-  instrument = "Flute";
-  barcode = 123;
-  signOutDate = "2022-11-22"
-  returnDate = ""
+  studentName = req.body.name;
+  id = req.body.id;
+  instrument = req.body.instrument;
+  barcode = req.body.barcode;
+  signOutDate = req.body.signOutDate;
+  returnDate = req.body.returnDate == "" ? null : req.body.returnDate;
   dataModel.addSignOut(studentName, id, instrument, barcode, signOutDate, returnDate, function() {
     res.redirect('/logs');
   });

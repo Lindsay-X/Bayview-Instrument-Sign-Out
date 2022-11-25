@@ -45,12 +45,12 @@
     <div id="addmodal" class="modal">
       <div class="add-modal-content" >
         <h1>Add a student</h1>
-        <input placeholder="Student">
-        <br>
-        <input placeholder="Student ID">
-        <br>
-        <button class="close">Cancel</button>
         <form action="/logs/students/create" method="post">
+          <input name="name" placeholder="Student">
+          <br>
+          <input name="id" placeholder="Student ID">
+          <br>
+          <button form="dummy" class="close">Cancel</button>
           <button type="submit" id="add" class="navBtn--blue">Confirm</button>
         </form>
       </div> 

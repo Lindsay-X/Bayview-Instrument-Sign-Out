@@ -45,12 +45,12 @@
     <div id="addmodal" class="modal">
       <div class="add-modal-content" >
         <h1>Add an instrument</h1>
-        <input placeholder="Instrument">
-        <br>
-        <input placeholder="Barcode number">
-        <br>
-        <button class="close">Cancel</button>
         <form action="/logs/instruments/create" method="post">
+          <input name="instrument" placeholder="Instrument">
+          <br>
+          <input name="barcode" placeholder="Barcode number">
+          <br>
+          <button form="dummy" class="close">Cancel</button>
           <button type="submit" id="add" class="navBtn--blue">Confirm</button>
         </form>
       </div>

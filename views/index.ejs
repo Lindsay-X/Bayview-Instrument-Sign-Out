@@ -45,20 +45,20 @@
     <div id="addmodal" class="modal">
       <div class="add-modal-content" >
         <h1>Add a signout log</h1>
-        <input placeholder="Student">
-        <br>
-        <input placeholder="Student ID">
-        <br>
-        <input placeholder="Instrument">
-        <br>
-        <input placeholder="Barcode Number">
-        <br>
-        <input placeholder="Sign Out Date">
-        <br>
-        <input placeholder="Return Date">
-        <br>
-        <button class="close">Cancel</button>
         <form action="/logs/create" method="post">
+          <input name="name" placeholder="Student">
+          <br>
+          <input name="id" placeholder="Student ID">
+          <br>
+          <input name="instrument" placeholder="Instrument">
+          <br>
+          <input name="barcode" placeholder="Barcode Number">
+          <br>
+          <input name="signOutDate" placeholder="Sign Out Date">
+          <br>
+          <input name="returnDate" placeholder="Return Date">
+          <br>
+          <button form="dummy" class="close">Cancel</button>
           <button type="submit" id="add" class="navBtn--blue">Confirm</button>
         </form>
       </div> 

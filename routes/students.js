@@ -12,8 +12,8 @@ router.get('/', function(req, res){
 })
 
 router.post('/create', function(req, res) {
-    studentName = "Larris Xie";
-    id = 340920198;
+    studentName = req.body.name;
+    id = req.body.id;
     dataModel.addStudent(studentName, id, function() {
       res.redirect('/logs/students');
     });

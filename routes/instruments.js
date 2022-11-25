@@ -12,8 +12,8 @@ router.get('/', function(req, res){
 })
 
 router.post('/create', function(req, res) {
-    instrument = "Tuba";
-    barcode = 1;
+    instrument = req.body.instrument;
+    barcode = req.body.barcode;
     dataModel.addInstrument(instrument, barcode, function() {
       res.redirect('/logs/instruments');
     });
