@@ -11,8 +11,9 @@ router.post('/admin', function(req, res) {
 });
 
 router.post('/form', function(req, res) {
+  var name = encodeURIComponent(req.body.name);
   var id = encodeURIComponent(req.body.id);
-  res.redirect("/input?id=" + id);
+  res.redirect("/input?name=" + name + "&id=" + id);
 });
 
 module.exports = router;

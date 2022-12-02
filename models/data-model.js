@@ -139,7 +139,15 @@ function getDate() {
     let day = date.getDate();
     let month = date.getMonth();
     let year = date.getFullYear();
-    return `${month}/${day}/${year}`;
+    if (day < 10) {
+        dayFormat = "0" + day;
+        day = dayFormat;
+    }
+    if (month < 10) {
+        monthFormat = "0" + month;
+        month = monthFormat;
+    }
+    return `${year}/${month+1}/${day}`;
 }
 
 function idToName(id, cb) {
