@@ -78,8 +78,8 @@
               <th class="row" scope="row"><%= (i+1) %>
                 <form action="/logs/currentsignout/delete" method="post">
                   <button type="submit" id="del" class="delete">X</button></th>
-              <td class="row"><input type="hidden" name="name" value=<%= data[i].StudentName%> /><%= data[i].StudentName%></td>
-              <td class="row"><input type="hidden" name="instrument" value=<%= data[i].Instrument%> /><%= data[i].Instrument%></td>
+              <td class="row"><input type="hidden" name="name" value="<%=data[i].StudentName%>" /><%= data[i].StudentName%></td>
+              <td class="row"><input type="hidden" name="instrument" value="<%=data[i].Instrument%>" /><%= data[i].Instrument%></td>
               <td class="row"><input type="hidden" name="signout" value=<%= data[i].SignOutDate%> /><%= data[i].SignOutDate%></td>
             </form>
             </tr>
