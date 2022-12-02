@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Instrument Sign Out</title>
+    <link rel="stylesheet" href="../css/log.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+
+  <body>
+    <div>
+      <table class="topnav">
+        <tr>
+          <td class="nav">
+            <a href="/"><i class="material-icons">home</i></a>
+          </td>
+          <td style="width:20%;text-align: left; padding-left: 10px;">
+            <input id="searchbar" onkeyup="search(7)" placeholder="Search">
+          </td>
+          <td class="nav">
+            <a href="/logs/students">Students</a>
+          </td>
+          <td class="nav">
+            <a href="/logs/instruments">Instruments</a>
+          </td>
+          <td class="nav">
+            <a href="/logs">Full</a>
+          </td>
+          <td class="nav">
+            <a href="/logs/signout">Sign Out</a>
+          </td>
+          <td class="nav">
+            <a href="/logs/currentsignout">Not Returned</a>
+          </td>
+          <td style="width:10%"></td>
+          <td>
+            <button id="addaction" class="add">Add</button>
+            <button type="submit" id="opendelete" class="minus">Del</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <!-- Add instrument modal -->
+    <div id="addmodal" class="modal">
+      <div class="add-modal-content" >
+        <h1>Add a signout log</h1>
+        <form action="/logs/create" method="post">
+          <input name="name" placeholder="Student">
+          <br>
+          <input name="id" placeholder="Student ID">
+          <br>
+          <input name="instrument" placeholder="Instrument">
+          <br>
+          <input name="barcode" placeholder="Barcode Number">
+          <br>
+          <input name="signOutDate" placeholder="Sign Out Date">
+          <br>
+          <input name="returnDate" placeholder="Return Date">
+          <br>
+          <button form="dummy" class="close">Cancel</button>
+          <button type="submit" id="add">Confirm</button>
+        </form>
+      </div> 
+    </div>
+
+    <table class="tbl-content" cellpadding="0" cellspacing="0" border="0">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">ID</th>
+                <th scope="col">Instrument</th>
+                <th scope="col">Barcode</th>
+                <th scope="col">Signed Out</th>
+                <th scope="col">Returned</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(data.length > 0){
+            for(var i = 0; i< data.length; i++) {%>
+            <tr>
+              <th class="row" scope="row"><%= (i+1) %>
+                <form action="/logs/delete" method="post">
+                  <button type="submit" id="del" class="delete">X</button></th>
+              <td class="row"><input type="hidden" name="name" value=<%= data[i].StudentName%> /><%= data[i].StudentName%></td>
+              <td class="row"><%= data[i].StudentID%></td>
+              <td class="row"><input type="hidden" name="instrument" value=<%= data[i].Instrument%> /><%= data[i].Instrument%></td>
+              <td class="row"><%= data[i].BarcodeNumber%></td>
+              <td class="row"><input type="hidden" name="signout" value=<%= data[i].SignOutDate%> /><%= data[i].SignOutDate%></td>
+              <td class="row"><%= data[i].ReturnDate%></td>
+            </form>
+            </tr>
+            <% }
+            }else{ %>
+            <tr>
+                <td colspan="5">There are no signed out instruments right now.</td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <script src="../modal.js"></script>
+  </body>
+</html>

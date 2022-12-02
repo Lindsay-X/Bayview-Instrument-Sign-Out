@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Instrument Sign Out</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <h1 class="center">Instrument Sign Out/Return</h1>
+
+    <div class="center">
+      <form action="/input/confirm?name=<%=name%>&id=<%=id%>" method="post">
+        <input type="text" name="barcode" placeholder="Instrument number">
+    </div>
+
+    <p class="center">(type or barcode scan)</p>
+
+    <div class="center">
+        <button>Enter</button> 
+      </form>
+      <form action="/input/home" method="post">
+        <button>Back</button>
+      </form>
+    </div>
+  </body>
+</html>

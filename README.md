@@ -1,2 +1,2 @@
 # Bayview-Instrument-Sign-Out
-A website for signing in and signing out instruments using a barcode scanner.
+A website for signing out and returning instruments using a barcode scanner.
