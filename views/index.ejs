@@ -13,7 +13,7 @@
             <a href="/"><i class="material-icons">home</i></a>
           </td>
           <td style="width:20%;text-align: left; padding-left: 10px;">
-            <input name="search_word" placeholder="Search">
+            <input id="searchbar" onkeyup="search(7)" placeholder="Search">
           </td>
           <td class="nav">
             <a href="/logs/students">Students</a>
@@ -33,9 +33,7 @@
           <td style="width:10%"></td>
           <td>
             <button id="addaction" class="add">Add</button>
-            <form action="/logs/delete" method="post">
-              <button type="submit" id="del" class="minus">Del</button>
-            </form>
+            <button type="submit" id="opendelete" class="minus">Del</button>
           </td>
         </tr>
       </table>
@@ -59,7 +57,7 @@
           <input name="returnDate" placeholder="Return Date">
           <br>
           <button form="dummy" class="close">Cancel</button>
-          <button type="submit" id="add" class="navBtn--blue">Confirm</button>
+          <button type="submit" id="add">Confirm</button>
         </form>
       </div> 
     </div>
@@ -80,13 +78,16 @@
             <% if(data.length > 0){
             for(var i = 0; i< data.length; i++) {%>
             <tr>
-                <th scope="row"><%= (i+1) %></th>
-                <td><%= data[i].StudentName%></td>
-                <td><%= data[i].StudentID%></td>
-                <td><%= data[i].Instrument%></td>
-                <td><%= data[i].BarcodeNumber%></td>
-                <td><%= data[i].SignOutDate%></td>
-                <td><%= data[i].ReturnDate%></td>
+              <th class="row" scope="row"><%= (i+1) %>
+                <form action="/logs/delete" method="post">
+                  <button type="submit" id="del" class="delete">X</button></th>
+              <td class="row"><input type="hidden" name="name" value=<%= data[i].StudentName%> /><%= data[i].StudentName%></td>
+              <td class="row"><%= data[i].StudentID%></td>
+              <td class="row"><input type="hidden" name="instrument" value=<%= data[i].Instrument%> /><%= data[i].Instrument%></td>
+              <td class="row"><%= data[i].BarcodeNumber%></td>
+              <td class="row"><input type="hidden" name="signout" value=<%= data[i].SignOutDate%> /><%= data[i].SignOutDate%></td>
+              <td class="row"><%= data[i].ReturnDate%></td>
+            </form>
             </tr>
             <% }
             }else{ %>

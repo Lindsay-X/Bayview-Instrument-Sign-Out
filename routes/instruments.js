@@ -20,7 +20,7 @@ router.post('/create', function(req, res) {
 });
 
 router.post('/delete', function(req, res) {
-    barcode = 1;
+    barcode = req.body.barcode;
     dataModel.removeInstrument(barcode, function() {
       res.redirect('/logs/instruments');
     });

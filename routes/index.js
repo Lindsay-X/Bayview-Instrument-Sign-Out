@@ -24,9 +24,9 @@ router.post('/create', function(req, res) {
 });
 
 router.post('/delete', function(req, res) {
-  studentName = "Larris Xie";
-  instrument = "Flute"
-  signOutDate = "2022-11-22"
+  studentName = req.body.name;
+  instrument = req.body.instrument;
+  signOutDate = req.body.signout;
   dataModel.removeSignOut(studentName, instrument, signOutDate, function() {
     res.redirect('/logs');
   });

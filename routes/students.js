@@ -20,7 +20,7 @@ router.post('/create', function(req, res) {
 });
 
 router.post('/delete', function(req, res) {
-    id = 340920198;
+    id = req.body.id;
     dataModel.removeStudent(id, function() {
       res.redirect('/logs/students');
     });

@@ -13,7 +13,7 @@
             <a href="/"><i class="material-icons">home</i></a>
           </td>
           <td style="width:20%;text-align: left; padding-left: 10px;">
-            <input name="search_word" placeholder="Search">
+            <input id="searchbar" onkeyup="search(3)" placeholder="Search">
           </td>
           <td class="nav">
             <a href="/logs/students">Students</a>
@@ -33,9 +33,7 @@
           <td style="width:10%"></td>
           <td>
             <button id="addaction" class="add">Add</button>
-            <form action="/logs/instruments/delete" method="post">
-              <button type="submit" id="del" class="minus">Del</button>
-            </form>
+            <button type="submit" id="opendelete" class="minus">Del</button>
           </td>
         </tr>
       </table>
@@ -51,7 +49,7 @@
           <input name="barcode" placeholder="Barcode number">
           <br>
           <button form="dummy" class="close">Cancel</button>
-          <button type="submit" id="add" class="navBtn--blue">Confirm</button>
+          <button type="submit" id="add">Confirm</button>
         </form>
       </div>
     </div>
@@ -68,9 +66,13 @@
             <% if(data.length > 0){
             for(var i = 0; i< data.length; i++) {%>
             <tr>
-                <th scope="row"><%= (i+1) %></th>
-                <td><%= data[i].Instrument%></td>
-                <td><%= data[i].BarcodeNumber%></td>
+                <th class="row" scope="row"><%= (i+1) %>
+                  <form action="/logs/instruments/delete" method="post">
+                    <button type="submit" id="del" class="delete">X</button>
+                </th>
+                <td class="row"><%= data[i].Instrument%></td>
+                <td class="row"><input type="hidden" name="barcode" value=<%= data[i].BarcodeNumber%> /><%= data[i].BarcodeNumber%></td>
+              </form>
             </tr>
             <% }
             }else{ %>
