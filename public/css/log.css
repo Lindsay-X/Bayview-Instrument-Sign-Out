@@ -37,15 +37,6 @@ table{
     table-layout: fixed;
 }
 
-td:last-child, th:last-child{
-    border-left: 2px solid;
-}
-
-th:nth-child(1){
-    width: 10%;
-    border-right: 2px solid;
-}
-
 th{
     background-color: #A9D0F3;
     padding: 20px 15px;
@@ -56,6 +47,8 @@ th{
     font-size: 36px;
     line-height: 50px;
     text-align: center;
+
+    width: 20%;
 
     color: #000000;
 
@@ -72,10 +65,22 @@ td{
     font-size: 36px;
     line-height: 60px;
     text-align: center;
+    width: 20%;
 
     color: #000000;
+}
 
-    cursor: pointer;
+td:last-child, th:last-child{
+    border-left: 2px solid;
+}
+
+th:nth-child(1){
+    width: 2.5em;
+    border-right: 2px solid;
+}
+
+th:nth-child(2){
+    width: 30%;
 }
 
 td.selected{
@@ -94,6 +99,10 @@ td.selected{
     text-align: center;
 
     color: #000000;
+}
+
+.tbl-content td{
+    border-left: 2px solid;
 }
 
  /*navigation bar*/
@@ -115,8 +124,12 @@ td.selected{
 
 .topnav td {
     background-color: #255582;
+    width: 30%;
     /* line-height: 24px; */
-    cursor:default;
+}
+
+.topnav td:nth-child(1){
+    width: 20%;
 }
 
 .topnav a {
@@ -148,6 +161,8 @@ td.selected{
     font-size: 20px;
     color: #FFEAEA;
     width: 68px;
+
+    cursor: pointer;
 }
 
 .add{
