@@ -34,7 +34,7 @@ p{
   margin-bottom: 30px;
 }
 
-input[type= text]{
+input[type= password]{
   min-width: 625px;
   background-color: #EFEFEF;
   border-color: #0D2C7B;
@@ -47,7 +47,7 @@ input[type= text]{
   margin-bottom: 73px;
 }
 
-input[type= text]:hover{
+input[type= password]:hover{
   background-color: #e1dfdf;  
   cursor:text;
 }
